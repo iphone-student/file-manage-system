@@ -1,0 +1,12 @@
+#ifndef PUBLICTOOLS_GLOBAL_H
+#define PUBLICTOOLS_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(PUBLICTOOLS_LIBRARY)
+#   define PUBLICTOOLS_EXPORT Q_DECL_EXPORT
+#else
+#   define PUBLICTOOLS_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // PUBLICTOOLS_GLOBAL_H

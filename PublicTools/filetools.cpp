@@ -5,6 +5,35 @@ FileTools::FileTools()
 
 }
 
+void FileTools::txtAnalysis(QString filePath)
+{
+    // filePath = "C:\\Users\\姜丹阳\\Desktop\\文件后缀.txt"
+    QTextCodec* codec = QTextCodec::codecForName("UTF-8");
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "无法打开文件";
+        return;
+    }
+
+    QTextStream in(&file);
+    in.setCodec(codec);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QString fileSuffix = "";
+        QString fileInfo = "";
+        for(int i = 0; i < line.size(); i++){
+            if(line[i] == " "){
+                fileInfo = line.mid(i + 1, line.size());
+                break;
+            }
+            else fileSuffix += line[i];
+        }
+        qDebug() << fileSuffix << fileInfo;
+    }
+
+    file.close();
+}
+
 bool FileTools::AddressIsDir(QString filePath)
 {
     // 检查路径是否存在

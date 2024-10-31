@@ -1,4 +1,4 @@
-QT       += core gui sql multimedia multimediawidgets
+QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,9 +15,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-TARGET = MainWindows
+TARGET = CameraManage
 TEMPLATE = lib
-DEFINES += MainWindows_LIBRARY
+DEFINES += CameraManage_LIBRARY
 
 include(../buildPath.pri)
 DESTDIR = $$EXEC_DIR
@@ -29,19 +29,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 LIBS += -L$$EXEC_DIR
 
-FORMS += \
-    mainwindow.ui
-
 HEADERS += \
-    mainwindow.h
+    CameraManage_global.h \
+    cameramanage.h
 
 SOURCES += \
-    mainwindow.cpp
-
-LIBS += -L$$EXEC_DIR -lPublicTools -lCameraManage
-
-INCLUDEPATH += $$PWD/../PublicTools
-DEPENDPATH += $$PWD/../PublicTools
-
-INCLUDEPATH += $$PWD/../CameraManage
-DEPENDPATH += $$PWD/../CameraManage
+    cameramanage.cpp

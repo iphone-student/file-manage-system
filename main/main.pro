@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +30,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-LIBS += -L$$EXEC_DIR -lPublicTools -lDatabaseManage -lMainWindows
+LIBS += -L$$EXEC_DIR -lPublicTools -lDatabaseManage -lMainWindows -lCameraManage
 
 INCLUDEPATH += $$PWD/../MainWindows
 DEPENDPATH += $$PWD/../MainWindows
@@ -40,3 +40,6 @@ DEPENDPATH += $$PWD/../PublicTools
 
 INCLUDEPATH += $$PWD/../DatabaseManage
 DEPENDPATH += $$PWD/../DatabaseManage
+
+INCLUDEPATH += $$PWD/../CameraManage
+DEPENDPATH += $$PWD/../CameraManage

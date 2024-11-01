@@ -6,88 +6,149 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>692</width>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="FileAddressLineEdit">
+   <widget class="QTabWidget" name="mainTabWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>80</y>
-      <width>421</width>
-      <height>31</height>
+      <x>10</x>
+      <y>10</y>
+      <width>671</width>
+      <height>541</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QPushButton" name="TXTAnalysisButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>200</y>
-      <width>621</width>
-      <height>28</height>
-     </rect>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <property name="text">
-     <string>txt文件读取</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="FileAddressLabel">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>80</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>文件夹地址：</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="FileAddressButton">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>80</y>
-      <width>92</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>导入地址</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="FileAddressAnalysisButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>150</y>
-      <width>621</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>路径分析</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="TestButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>250</y>
-      <width>621</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>测试功能</string>
-    </property>
+    <widget class="QWidget" name="FileManage">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QPushButton" name="TestButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>621</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>测试功能</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="FileAddressAnalysisButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>621</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>路径分析</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="FileAddressLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>文件夹地址：</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="FileAddressButton">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>30</y>
+        <width>92</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>导入地址</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="FileAddressLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>421</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="CameraManage">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <widget class="QPushButton" name="LinkCameraButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>60</y>
+        <width>301</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>连接摄像头</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="VideoWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>641</width>
+        <height>381</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="CheckCamera">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>60</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>检查摄像头</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="CameraSelect">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="DatabaseManage">
+     <attribute name="title">
+      <string>页</string>
+     </attribute>
+    </widget>
    </widget>
   </widget>
  </widget>

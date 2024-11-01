@@ -20,6 +20,12 @@ MainWindow::~MainWindow()
 void MainWindow::initData()
 {
     this->setWindowTitle("文件管理系统");
+    ui->mainTabWidget->setTabText(0, "文件管理");
+    ui->mainTabWidget->setTabText(1, "摄像头管理");
+    ui->mainTabWidget->setTabText(2, "数据库管理");
+
+    ui->CameraSelect->addItems(CameraManage::getInstance()->CameraNames);
+    ui->VideoWidget->setStyleSheet("QWidget{background-color:black}");
 }
 
 void MainWindow::initLayout()
@@ -29,22 +35,31 @@ void MainWindow::initLayout()
 
     // 创建一个水平布局
     QGridLayout *mainLayout = new QGridLayout(centralWidget);
-
-    // 添加按钮到布局
-    mainLayout->addWidget(ui->FileAddressLabel,             0, 0, 1, 1);
-    mainLayout->addWidget(ui->FileAddressLineEdit,          0, 1, 1, 4);
-    mainLayout->addWidget(ui->FileAddressButton,            0, 5, 1, 1);
-    mainLayout->addWidget(ui->FileAddressAnalysisButton,    1, 0, 1, 6);
-    mainLayout->addWidget(ui->TXTAnalysisButton,            2, 0, 1, 6);
-    mainLayout->addWidget(ui->TestButton,                   3, 0, 1, 6);
+    mainLayout->addWidget(ui->mainTabWidget);
 
     // 设置中心控件
     this->setCentralWidget(centralWidget);
+
+
+    QGridLayout *fileManageLayout = new QGridLayout(ui->FileManage);
+    fileManageLayout->addWidget(ui->FileAddressLabel,           0, 0, 1, 1);
+    fileManageLayout->addWidget(ui->FileAddressLineEdit,        0, 1, 1, 4);
+    fileManageLayout->addWidget(ui->FileAddressButton,          0, 5, 1, 1);
+    fileManageLayout->addWidget(ui->FileAddressAnalysisButton,  1, 0, 1, 6);
+    fileManageLayout->addWidget(ui->TestButton,                 2, 0, 1, 6);
+
+
+    // 添加按钮到布局
+    QGridLayout *cameraManageLayout = new QGridLayout(ui->CameraManage);
+    cameraManageLayout->addWidget(ui->CameraSelect,     0, 0, 1, 2);
+    cameraManageLayout->addWidget(ui->LinkCameraButton, 0, 2, 1, 1);
+    cameraManageLayout->addWidget(ui->CheckCamera,      0, 3, 1, 1);
+    cameraManageLayout->addWidget(ui->VideoWidget,      1, 0, 1, 4);
+
 }
 
 void MainWindow::initWidget()
 {
-    QString currentPath = QDir::currentPath();
     ui->FileAddressLineEdit->clear();
 }
 
@@ -52,6 +67,7 @@ void MainWindow::on_FileAddressButton_clicked()
 {
     // 若当前路径不存在，则直接结束本函数
     QString filePath = ui->FileAddressLineEdit->text();
+    // QString currentPath = QDir::currentPath();
     if(!FileTool->AddressIsDir(filePath)) filePath = QDir::homePath();
 
     filePath = QFileDialog::getExistingDirectory(nullptr, QObject::tr("选择文件路径"), filePath);
@@ -79,37 +95,32 @@ void MainWindow::on_FileAddressAnalysisButton_clicked()
     FileTool->FileInfoAnalysis(filesPath);
 }
 
-void MainWindow::on_TXTAnalysisButton_clicked()
-{
-    QString TxtPath = "C:\\Users\\姜丹阳\\Desktop\\文件后缀.txt";
-    QTextCodec* codec = QTextCodec::codecForName("UTF-8");
-    QFile file(TxtPath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "无法打开文件";
-        return;
-    }
-
-    QTextStream in(&file);
-    in.setCodec(codec);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QString fileSuffix = "";
-        QString fileInfo = "";
-        for(int i = 0; i < line.size(); i++){
-            if(line[i] == " "){
-                fileInfo = line.mid(i + 1, line.size());
-                break;
-            }
-            else fileSuffix += line[i];
-        }
-        qDebug() << "文件后缀：" << fileSuffix << "文件说明：" << fileInfo;
-    }
-
-    file.close();
-}
-
 void MainWindow::on_TestButton_clicked()
 {
-    qDebug() << FileTool->CalculateStringSimilarity("REBD-123.mp4", "1");
-    qDebug() << PublicTools::getInstance()->randomString(10, 12);
+
+}
+
+void MainWindow::on_LinkCameraButton_clicked()
+{
+    if(ui->VideoWidget->layout() != nullptr){
+        int i = 0;
+        while(ui->VideoWidget->layout()->count() > 0) {
+            delete ui->VideoWidget->layout()->takeAt(0)->widget();
+        }
+        // 删除布局
+        delete ui->VideoWidget->layout();
+    }
+
+    CameraManage::getInstance()->linkCamera(ui->CameraSelect->currentText(), ui->VideoWidget);
+
+    QVBoxLayout *VideoLayout = new QVBoxLayout(ui->VideoWidget);
+    VideoLayout->addWidget(CameraManage::getInstance()->Viewfinder);
+    ui->VideoWidget->setLayout(VideoLayout);
+}
+
+void MainWindow::on_CheckCamera_clicked()
+{
+    CameraManage::getInstance()->initCameraInfo();
+    ui->CameraSelect->clear();
+    ui->CameraSelect->addItems(CameraManage::getInstance()->CameraNames);
 }

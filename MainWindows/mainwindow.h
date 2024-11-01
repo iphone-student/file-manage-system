@@ -2,15 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QDir>
-#include <QFile>
-#include <QTextCodec>
-#include <QTextStream>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QGridLayout>
 #include <QMainWindow>
 
 #include "filetools.h"
+#include "cameramanage.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,8 +25,9 @@ public:
 private slots:
     void on_FileAddressButton_clicked();
     void on_FileAddressAnalysisButton_clicked();
-    void on_TXTAnalysisButton_clicked();
     void on_TestButton_clicked();
+    void on_LinkCameraButton_clicked();
+    void on_CheckCamera_clicked();
 
 private:
     Ui::MainWindow *ui;

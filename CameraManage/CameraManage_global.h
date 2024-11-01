@@ -1,0 +1,12 @@
+#ifndef CAMERAMANAGE_GLOBAL_H
+#define CAMERAMANAGE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CAMERAMANAGE_LIBRARY)
+#   define CAMERAMANAGE_EXPORT Q_DECL_EXPORT
+#else
+#   define CAMERAMANAGE_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CAMERAMANAGE_GLOBAL_H

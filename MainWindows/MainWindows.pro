@@ -38,6 +38,9 @@ HEADERS += \
 SOURCES += \
     mainwindow.cpp
 
+INCLUDEPATH += C:/OpenCV/opencv-build/install/include
+LIBS += C:/OpenCV/opencv-build/lib/libopencv_*.a
+
 LIBS += -L$$EXEC_DIR -lPublicTools -lCameraManage
 
 INCLUDEPATH += $$PWD/../PublicTools

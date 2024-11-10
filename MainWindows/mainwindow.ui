@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="FileManage">
      <attribute name="title">
@@ -148,6 +148,73 @@
      <attribute name="title">
       <string>页</string>
      </attribute>
+    </widget>
+    <widget class="QWidget" name="OpenCVTab">
+     <attribute name="title">
+      <string>页</string>
+     </attribute>
+     <widget class="QLabel" name="ImageAddressLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>图片：</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="ImageBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>621</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="ImageLabel">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>120</y>
+         <width>72</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="ImageAddressLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>421</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="OpenImageButton">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>30</y>
+        <width>92</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>打开图片</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

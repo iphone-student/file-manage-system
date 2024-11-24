@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QDir>
+#include <Windows.h>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QGridLayout>
@@ -9,19 +10,15 @@
 #include <QResizeEvent>
 
 #include "filetools.h"
+#include "videohandle.h"
+#include "videohandlethread.h"
 #include "cameramanage.h"
 #include "MainWindow_global.h"
 
-#include <vector>
-#include <Windows.h>
-#include <opencv2/highgui/highgui_c.h>
-#include <opencv2/opencv.hpp>
 
 namespace Ui {
 class MainWindow;
 }
-
-using namespace cv;
 
 class MAINWINDOW_EXPORT MainWindow : public QMainWindow
 {
@@ -39,6 +36,7 @@ private slots:
     void on_CheckCamera_clicked();
     void on_OpenImageButton_clicked();
 
+    void showVideoFPS(QPixmap imageFPS);
 private:
     Ui::MainWindow *ui;
     FileTools *FileTool; // 文件操作工具
@@ -48,9 +46,6 @@ private:
     void initData();    // 初始化数据
     void initLayout();  // 初始化窗口布局
     void initWidget();  // 初始化控件
-
-    QPixmap cvMatToQPixmap(const cv::Mat &inMat);
-    QImage cvMatToQImage(const cv::Mat &inMat);
 };
 
 #endif // MAINWINDOW_H

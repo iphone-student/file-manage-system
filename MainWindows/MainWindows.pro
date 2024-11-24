@@ -46,10 +46,13 @@ INCLUDEPATH += $$OpenCV/build/include
 win32:CONFIG(release, debug|release): LIBS += -L$$OpenCV/build/x64/vc14/lib -lopencv_world460
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OpenCV/build/x64/vc14/lib -lopencv_world460d
 
-LIBS += -L$$EXEC_DIR -lPublicTools -lCameraManage
+LIBS += -L$$EXEC_DIR -lPublicTools -lCameraManage -lVideoHandle
 
 INCLUDEPATH += $$PWD/../PublicTools
 DEPENDPATH += $$PWD/../PublicTools
 
 INCLUDEPATH += $$PWD/../CameraManage
 DEPENDPATH += $$PWD/../CameraManage
+
+INCLUDEPATH += $$PWD/../VideoHandle
+DEPENDPATH += $$PWD/../VideoHandle

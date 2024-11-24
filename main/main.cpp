@@ -1,6 +1,7 @@
 ﻿#include <QApplication>
 
 #include "mainwindow.h"
+#include "videohandle.h"
 #include "publictools.h"
 #include "cameramanage.h"
 #include "databasemanage.h"
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
     new CameraManage();     // 相机模块
 //    new DatabaseManage();   // 数据库管理模块
     new MainWindow();       // 主界面模块
+    new VideoHandle();      // 视频处理模块
 
     return a.exec();
 }

@@ -1,0 +1,12 @@
+﻿#ifndef VIDEOHANDLE_GLOBAL_H
+#define VIDEOHANDLE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(VIDEOHANDLE_LIBRARY)
+#   define VIDEOHANDLE_EXPORT Q_DECL_EXPORT
+#else
+#   define VIDEOHANDLE_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // VIDEOHANDLE_GLOBAL_H

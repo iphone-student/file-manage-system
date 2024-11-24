@@ -5,4 +5,5 @@ SUBDIRS += \
     DatabaseManage \
     MainWindows \
     PublicTools \
+    VideoHandle \
     main

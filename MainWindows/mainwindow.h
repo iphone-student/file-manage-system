@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QDir>
@@ -10,7 +10,9 @@
 
 #include "filetools.h"
 #include "cameramanage.h"
+#include "MainWindow_global.h"
 
+#include <vector>
 #include <Windows.h>
 #include <opencv2/highgui/highgui_c.h>
 #include <opencv2/opencv.hpp>
@@ -21,7 +23,7 @@ class MainWindow;
 
 using namespace cv;
 
-class MainWindow : public QMainWindow
+class MAINWINDOW_EXPORT MainWindow : public QMainWindow
 {
     Q_OBJECT
 

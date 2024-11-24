@@ -1,4 +1,4 @@
-#ifndef DATABASEOPERATE_H
+﻿#ifndef DATABASEOPERATE_H
 #define DATABASEOPERATE_H
 
 #include <QDebug>
@@ -8,8 +8,9 @@
 #include <QSqlDatabase>
 
 #include "publictools.h"
+#include "DatabaseManage_global.h"
 
-class DatabaseOperate : public QThread
+class DATABASEMANAGE_EXPORT DatabaseOperate : public QThread
 {
     Q_OBJECT
 

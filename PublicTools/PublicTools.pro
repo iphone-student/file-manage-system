@@ -26,7 +26,7 @@ HEADERS += \
 
 TARGET = PublicTools
 TEMPLATE = lib
-DEFINES += PublicTools_LIBRARY
+DEFINES += PUBLICTOOLS_LIBRARY
 
 include(../buildPath.pri)
 DESTDIR = $$EXEC_DIR

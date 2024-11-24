@@ -1,4 +1,4 @@
-#ifndef CAMERAMANAGE_H
+﻿#ifndef CAMERAMANAGE_H
 #define CAMERAMANAGE_H
 
 #include <QCamera>
@@ -8,7 +8,7 @@
 
 #include "CameraManage_global.h"
 
-class CameraManage
+class CAMERAMANAGE_EXPORT CameraManage
 {
 public:
     CameraManage();

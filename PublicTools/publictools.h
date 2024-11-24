@@ -1,4 +1,4 @@
-#ifndef PUBLICTOOLS_H
+﻿#ifndef PUBLICTOOLS_H
 #define PUBLICTOOLS_H
 
 #include <QTime>
@@ -8,7 +8,9 @@
 #include <qrandom.h>
 #include <QRandomGenerator>
 
-class PublicTools : public QObject
+#include "PublicTools_global.h"
+
+class PUBLICTOOLS_EXPORT PublicTools : public QObject
 {
     Q_OBJECT
 

@@ -1,4 +1,4 @@
-#include "filetools.h"
+﻿#include "filetools.h"
 
 FileTools::FileTools()
 {

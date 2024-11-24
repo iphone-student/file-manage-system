@@ -1,4 +1,4 @@
-#ifndef FILETOOLS_H
+﻿#ifndef FILETOOLS_H
 #define FILETOOLS_H
 
 #include <QDir>
@@ -13,8 +13,9 @@
 #include <QTextStream>
 
 #include "publictools.h"
+#include "PublicTools_global.h"
 
-class FileTools
+class PUBLICTOOLS_EXPORT FileTools
 {
 public:
     FileTools();

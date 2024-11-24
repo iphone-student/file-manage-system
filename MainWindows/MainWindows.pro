@@ -17,7 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 TARGET = MainWindows
 TEMPLATE = lib
-DEFINES += MainWindows_LIBRARY
+DEFINES += MAINWINDOW_LIBRARY
 
 include(../buildPath.pri)
 DESTDIR = $$EXEC_DIR
@@ -33,13 +33,18 @@ FORMS += \
     mainwindow.ui
 
 HEADERS += \
+    MainWindow_global.h \
     mainwindow.h
 
 SOURCES += \
     mainwindow.cpp
 
-INCLUDEPATH += C:/OpenCV/opencv-build/install/include
-LIBS += C:/OpenCV/opencv-build/lib/libopencv_*.a
+win32{
+OpenCV = $$quote($$PWD/../PublicTools/opencv)
+INCLUDEPATH += $$OpenCV/build/include
+}
+win32:CONFIG(release, debug|release): LIBS += -L$$OpenCV/build/x64/vc14/lib -lopencv_world460
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OpenCV/build/x64/vc14/lib -lopencv_world460d
 
 LIBS += -L$$EXEC_DIR -lPublicTools -lCameraManage
 

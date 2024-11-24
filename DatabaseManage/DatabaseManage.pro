@@ -28,7 +28,7 @@ FORMS += \
 
 TARGET = DatabaseManage
 TEMPLATE = lib
-DEFINES += DatabaseManage_LIBRARY
+DEFINES += DATABASEMANAGE_LIBRARY
 
 include(../buildPath.pri)
 DESTDIR = $$EXEC_DIR

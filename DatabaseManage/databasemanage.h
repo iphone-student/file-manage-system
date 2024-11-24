@@ -1,10 +1,11 @@
-#ifndef DATABASEMANAGE_H
+﻿#ifndef DATABASEMANAGE_H
 #define DATABASEMANAGE_H
 
 #include "publictools.h"
 #include "databaseoperate.h"
+#include "DatabaseManage_global.h"
 
-class DatabaseManage
+class DATABASEMANAGE_EXPORT DatabaseManage
 {
 public:
     DatabaseManage();
